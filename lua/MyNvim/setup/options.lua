@@ -4,7 +4,6 @@ local capability = require('MyNvim.capabilities.options_mapper')
 vim.opt_global.timeout = true
 vim.opt_global.timeoutlen = 1000
 
-
 local mappings = {
 
   opt = {
@@ -54,6 +53,9 @@ local mappings = {
     -- but make it case sensitive if an uppercase is entered
     smartcase = true,
 
+    -- shortmess
+    shortmess = 'ixFtTOlonfA'
+
   },
 
   g = {
@@ -86,7 +88,6 @@ local mappings = {
   n = {},
 
 }
-
 
 capability.options_mapper(mappings)
 

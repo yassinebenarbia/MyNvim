@@ -26,7 +26,6 @@ for file in io.popen(file_name_command):lines() do
 
 end
 
-
 -- loading colorschemes
 local colorschemes_base_path  = debug.getinfo(1).source:match("@?(.*/)").."colorschemes/"
 local colorschemes_file_name_command = string.format("ls -pa %s | grep -v /", colorschemes_base_path)

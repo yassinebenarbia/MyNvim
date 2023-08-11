@@ -3,6 +3,7 @@ local opts = {
     noremap = true,      -- non-recursive
     silent = true,       -- do not show message
 }
+
 -- window resize
 vim.keymap.set("n", "<A-H>", ":vertical resize -5<CR>", opts)
 vim.keymap.set("n", "<A-L>", ":vertical resize +5<CR>", opts)

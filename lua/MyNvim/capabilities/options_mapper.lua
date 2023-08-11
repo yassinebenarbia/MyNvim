@@ -1,18 +1,18 @@
 local M = {}
--- This function is used to fill the vim.stuff.thing = value
---
--- @params map of mode, property and value
---
--- @example 
---          {
---            g{
---                mapleader = ' ',
---            }, 
---            opt{
---              tabstop = 2,
---              number = true,
---            }
---          }
+---This function is used to fill the vim.stuff.thing = value
+---
+---@param options? table map of mode, property and value
+---
+---Example:
+---  options_mapper({
+---    g = {
+---        mapleader = ' ',
+---    }, 
+---    opt = {
+---      tabstop = 2,
+---      number = true,
+---    }
+---  })
 function M.options_mapper(options)
 
   -- for each mode and it's corresponding values

@@ -12,10 +12,11 @@ if not status then
 end
 
 -- additional plugins
+
 local status, additional_plugs = pcall(require, 'plugins-install');
 if status then
 
-  essential_plugs = capability.extend_tbl_over(essential_plugs, additional_plugs);
+  essential_plugs = capability.extend_tbl_over_and_set_lazy(essential_plugs, additional_plugs, true);
 
 end
 
