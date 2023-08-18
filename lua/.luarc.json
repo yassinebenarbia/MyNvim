@@ -1,0 +1,17 @@
+{
+    "diagnostics.globals": [
+        "vim",
+        "lvim",
+        "reload",
+        "lfs"
+    ],
+    "workspace.library": [
+        "/usr/share/nvim/runtime",
+        "/home/yassine/.local/share/lunarvim/lvim",
+        "/home/yassine/.local/share/lunarvim/site/pack/lazy/opt/neodev.nvim/types/stable",
+        "${3rd}/busted/library",
+        "${3rd}/luassert/library",
+        "${3rd}/luv/library",
+        "${3rd}/lfs/library"
+    ]
+}

@@ -1,0 +1,11 @@
+{
+  "catppuccin": { "branch": "main", "commit": "490078b1593c6609e6a50ad5001e7902ea601824" },
+  "lazy.nvim": { "branch": "main", "commit": "dac844ed617dda4f9ec85eb88e9629ad2add5e05" },
+  "neorg": { "branch": "main", "commit": "f296a22864bbac0d94ad00fa18cc8231dbeaa1e3" },
+  "nvim-lspconfig": { "branch": "master", "commit": "0d29cad8de3b2c654315203fc1fe12fde722a18a" },
+  "nvim-treesitter": { "branch": "master", "commit": "a3b2e0dcdb7ce0beb1459e5a3fde4bd975c35fc5" },
+  "plenary.nvim": { "branch": "master", "commit": "267282a9ce242bbb0c5dc31445b6d353bed978bb" },
+  "telescope.nvim": { "branch": "master", "commit": "776b509f80dd49d8205b9b0d94485568236d1192" },
+  "tokyonight.nvim": { "branch": "main", "commit": "1ee11019f8a81dac989ae1db1a013e3d582e2033" },
+  "which-key.nvim": { "branch": "main", "commit": "7ccf476ebe0445a741b64e36c78a682c1c6118b7" }
+}
