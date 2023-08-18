@@ -1,0 +1,10 @@
+---@Thougths[[
+--
+--- need to deal with each extension such that it will 
+--- be placed where it should be and it won't brake the system
+--- if it doesn't exist for some reason
+--- and every outer module, function or anything that needs it
+--- to work should not be a must for MyNvim to work
+--
+---@Thougths ]]
+--
