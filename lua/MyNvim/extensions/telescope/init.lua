@@ -22,13 +22,10 @@ for file in io.popen(file_name_command):lines() do
 
   if( file ~= "init.lua" ) then
 
-    local x = io.popen(string.format("$(PWD)")):lines()
-
     local link_file = string.format(
-      "ln -s %s/lua/MyNvim/extensions/telescope/%s \
-      ~/.local/share/nvim/lazy/telescope.nvim/lua/telescope/_extensions/%s",
-      config_path ,file, file
-    )
+      "echo ln -s %s/lua/MyNvim/extensions/telescope/%s \
+      $HOME/.local/share/nvim/lazy/telescope.nvim/lua/telescope/_extensions/%s | bash",
+      config_path ,file, file)
 
     pcall(io.popen, link_file)
     
