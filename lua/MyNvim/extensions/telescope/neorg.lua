@@ -1,1 +1,10 @@
-require("telescope").load_extension("neorg")
+return require("telescope").register_extension {
+
+  setup = function(ext_config, config)
+    -- access extension config and user config
+
+  end,
+  exports = {
+    workspaces = "nothing",
+  },
+}

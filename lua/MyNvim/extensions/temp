@@ -5,6 +5,10 @@
 --- if it doesn't exist for some reason
 --- and every outer module, function or anything that needs it
 --- to work should not be a must for MyNvim to work
---
+--- 
+--- how about making linked files ?
+---
+--- check if there is a deleted file and therefor delete it in the 
+--- other side
 ---@Thougths ]]
 --
