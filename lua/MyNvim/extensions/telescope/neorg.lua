@@ -1,30 +1,17 @@
-return{
+return require("telescope").register_extension {
+  setup = function(ext_config, config)
+    -- access extension config and user config
+  end,
+  exports = {
+    workspaces = function ()
 
-  neorg = {
+      local neorg = require('neorg')
 
-    setup = function(ext_config, config)
-      -- access extension config and user config
-    end,
-    exports = {
-      stuff = "t"
-    },
+      file = io.open("workspaces.txt", "w")
+      file:write(tostring(vim.inspect(neorg)))
+      file:close()
 
+    end
   },
-
-  xnorg = {
-
-    setup = function(ext_config, config)
-      -- access extension config and user config
-    end,
-
-    exports = {
-      stuff = function ()
-        print('dd')
-        print('dd')
-      end
-    },
-
-  },
-
 }
 

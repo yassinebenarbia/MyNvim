@@ -20,9 +20,6 @@ local config_path = vim.fn.stdpath("config")
 -- then load it if it's a directory load the init.lua 
 -- just below it
 
--- pcall(require, 'telescope.extensions')
-
-
 for file in io.popen(file_name_command):lines() do
 
   if( file ~= "init" ) then
@@ -31,19 +28,28 @@ for file in io.popen(file_name_command):lines() do
 
     if state then
 
-      local fstat, fcontent = pcall(require, 'MyNvim.extensions.telescope.' .. file)
-      if fstat then
+      local link_file = string.format(
+        "echo ln -s %s/lua/MyNvim/extensions/telescope/%s.lua " ..
+        "/home/yassine/.local/share/nvim/lazy/telescope.nvim/lua/telescope/_extensions/%s.lua | bash",
+        config_path ,file, file)
 
-        for key, value in pairs(fcontent) do
+      local stat, res = pcall(io.popen, link_file)
+      if stat then
 
-          telescope.extensions[key] = value
+        require('telescope').register_extension('neorg')
 
-        end
+      else
+
+        local log_writer = require "MyNvim.capabilities.write_log"
+        log_writer.write_log(res)
 
       end
 
     end
 
+    telescope.load_extension('neorg')
+
   end
 
 end
+
