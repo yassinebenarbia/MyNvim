@@ -2,3 +2,4 @@
 require('MyNvim')
 require('plugins-install')
 require('plugins-config')
+require('extensions')

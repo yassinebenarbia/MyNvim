@@ -8,4 +8,6 @@ return function(_, opts)
   vim.keymap.set('n', '<leader>fw', builtin.live_grep, {})
   vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
   vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+  -- neorg
+  vim.keymap.set('n', '<leader>nw', ':Telescope neorg workspaces<CR>', opts)
 end

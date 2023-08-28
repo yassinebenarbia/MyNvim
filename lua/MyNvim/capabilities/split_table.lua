@@ -1,4 +1,7 @@
 local M = {}
+---split the table to it's quivenent list of keys and values 
+---@param table table the desired table to split
+---@return table table table with lKeys key for list of keys and lValues for list of values respectively 
 function M.split_table(table)
   local lKeys = {}
   local lValues = {}
@@ -12,4 +15,4 @@ function M.split_table(table)
   }
 
 end
-  return M
+return M
