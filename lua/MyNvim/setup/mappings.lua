@@ -19,7 +19,6 @@ vim.keymap.set('n', '<A-j>', '<C-w>j', opts)
 vim.keymap.set('n', '<A-k>', '<C-w>k', opts)
 vim.keymap.set('n', '<A-l>', '<C-w>l', opts)
 
-
 -- Explore
 -- lhs vertical split Explore
 vim.keymap.set('n', '<C-n>', ':Lexplore <CR>', opts)

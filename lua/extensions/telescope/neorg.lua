@@ -11,13 +11,11 @@ return require("telescope").register_extension {
       local actions_stat = require "telescope.actions.state"
       local conf = require("telescope.config").values
       local capabilities = require("MyNvim.capabilities.split_table")
-      local neorg, status = pcall(require, 'neorg')
+      local status, neorg= pcall(require, 'neorg')
       if not status then
         warn("neorg is not found")
       end
-      local neorg = require('neorg')
       local workspaces = neorg.modules.loaded_modules["core.dirman"].public.get_workspaces()
-
       pickers.new({
         layout_config = {
           width = 0.4,
@@ -45,4 +43,3 @@ return require("telescope").register_extension {
     end
   },
 }
-
