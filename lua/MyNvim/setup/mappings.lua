@@ -1,6 +1,12 @@
 ---@breif [[
 --- Prymodial mappings, no other mappings are defined
+--- These mappings should not necessere any of the plugins
 ---@breif ]]
+---@Note [[
+--- planning to move them to the general mappings module, as it will be eaiser to manage
+--- should think about hte decession
+---@Note ]]
+
 -- define common options
 local opts = {
     noremap = true,      -- non-recursive

@@ -10,6 +10,15 @@ local M = {}
 ---  })
 function M.set_mappings(maps)
 
+  -- ToDo: erro message that emmits to the user he's parameter name used in the function
+  -- maybe it's value, and how it should be, for example "'var' is expected to be 'type' 
+  -- but found 'another'"
+  -- and if provided with straight value, it can be like, "expected 'type' got 'another'"
+  -- Resource: https://www.phind.com/agent?cache=cllyieppw000amq08pkyqcm1j
+  if type(maps) ~= "table" then
+    error("expected table in set_mappings function")
+  end
+
   for _, value in pairs(maps) do
 
     if #(value) == 4 then
@@ -41,17 +50,19 @@ function M.map_mappings(maps)
   -- mmap stands for mini map
   for mode, mmaps in pairs(maps) do
 
-    if #mmaps ~= 3 then
-      goto continue
+    if type(maps) ~= table then
+      error("map_mappings expect a table but got "..type(maps))
     end
 
-    for _, mmap in pairs(mmaps) do
+    if #mmaps == 3 then
 
-      vim.keymap.set(mode, mmap[1], mmap[2], mmap[3])
+      for _, mmap in pairs(mmaps) do
+
+        vim.keymap.set(mode, mmap[1], mmap[2], mmap[3])
+
+      end
 
     end
-
-    ::continue::
 
   end
 

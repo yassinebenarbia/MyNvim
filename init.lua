@@ -9,3 +9,5 @@ require('plugins-install')
 require('plugins-config')
 -- Extensions i.e. commands you can run
 require('extensions')
+-- External keymaps, i.e. keymaps that require external plugins
+require('ext-keymaps')
