@@ -50,16 +50,17 @@ function M.map_mappings(maps)
   -- mmap stands for mini map
   for mode, mmaps in pairs(maps) do
 
-    if type(maps) ~= table then
+    if type(maps) ~= "table" then
       error("map_mappings expect a table but got "..type(maps))
     end
 
-    if #mmaps == 3 then
+    for _, mmap in pairs(mmaps) do
 
-      for _, mmap in pairs(mmaps) do
+      if #mmap == 3 then
 
+        -- print(mode, mmap[1], mmap[2], mmap[3])
         vim.keymap.set(mode, mmap[1], mmap[2], mmap[3])
-
+        
       end
 
     end

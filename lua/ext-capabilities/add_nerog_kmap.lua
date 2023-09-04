@@ -8,12 +8,6 @@ local M = {}
 --     {"mode", "sub-mode", "keymap", "option"}
 --})
 function M.add_neorg_kmap(maps)
-
-  local status, neorg= pcall(require, 'neorg')
-  if not status then
-    warn("neorg is not found")
-  end
-  print(vim.inspect(neorg.config))
-
+  print("still unimplemented")
 end
 return M

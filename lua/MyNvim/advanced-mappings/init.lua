@@ -5,10 +5,19 @@
 ---@breif ]]
 local mapper = require("MyNvim.capabilities.set_mappings")
 
+mapper.map_mappings({
+  n = {
+    { '<leader>ff', require('telescope.builtin').find_files, {}},
+    { '<leader>fw', require('telescope.builtin').live_grep, {}},
+    { '<leader>fb', require('telescope.builtin').buffers, {}},
+    { '<leader>fh', require('telescope.builtin').help_tags, {}},
+    { '<leader>nw', ':Telescope neorg workspaces<CR>', {} },
+  },
+})
+
 mapper.set_mappings(
   {
     {"t", "<S-Esc>", [[<C-\><C-n>]], {noremap = true, silent = true} },
-
     {
       {"t", "n"}, "<A-i>", function ()
         require("toggleterm.terminal").Terminal
@@ -47,7 +56,8 @@ mapper.set_mappings(
           :toggle()
       end,
       {noremap = true, silent = true}
-    }, {
+    },
+    {
       ---@ToDo Delete this thing ASAP
     {"n"}, "<leader>gl", function ()
         require("toggleterm.terminal").Terminal
