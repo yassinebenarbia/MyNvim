@@ -13,18 +13,7 @@ function M.add_neorg_kmap(maps)
   if not status then
     warn("neorg is not found")
   end
-
-  local keybind_mapper = neorg.modules.loaded_modules["core.keybinds"].config
-
-  print(vim.inspect(keybind_mapper))
-  keybind_mapper.default_keybinds = false
-
-  -- keybind_mapper = {
-  --   hook = function (keybinds)
-  --     keybinds.map("norg", "n", "gtt", ":Telescope<CR>")
-  --     print("dididi")
-  --   end,
-  -- }
+  print(vim.inspect(neorg.config))
 
 end
 return M

@@ -7,7 +7,7 @@ local mapper = require("MyNvim.capabilities.set_mappings")
 
 mapper.set_mappings(
   {
-    {"t", "<esc>", [[<C-\><C-n>]], {noremap = true, silent = true} },
+    {"t", "<S-Esc>", [[<C-\><C-n>]], {noremap = true, silent = true} },
 
     {
       {"t", "n"}, "<A-i>", function ()

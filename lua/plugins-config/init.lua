@@ -15,7 +15,7 @@ for file in io.popen(file_name_command):lines() do
 
       local opts = require("plugins-config."..file_name)
       -- local status_ok, fault = pcall(require, "plugins."..file_name)
-      table.insert(plugins, opts)
+      -- table.insert(plugins, opts)
           
     end
     
