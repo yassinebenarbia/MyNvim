@@ -11,6 +11,7 @@ mapper.map_mappings({
     { '<leader>fw', require('telescope.builtin').live_grep, {}},
     { '<leader>fb', require('telescope.builtin').buffers, {}},
     { '<leader>fh', require('telescope.builtin').help_tags, {}},
+    { '<leader>fm', require('telescope.builtin').man_pages, {}},
   },
 })
 
