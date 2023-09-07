@@ -28,15 +28,17 @@ for file in io.popen(file_name_command):lines() do
 
     if state then
 
+      -- setting up the command for linking the file into the extension directory
       local link_file = string.format(
         "echo ln -sfn %s/lua/extensions/telescope/%s.lua " ..
         "/home/yassine/.local/share/nvim/lazy/telescope.nvim/lua/telescope/_extensions/%s.lua | bash",
         config_path ,file, file)
 
+      -- linking the file
       local stat, res = pcall(io.popen, link_file)
       if stat then
 
-        require('telescope').register_extension('neorg')
+        require('telescope').register_extension(file)
 
       else
 
@@ -48,10 +50,9 @@ for file in io.popen(file_name_command):lines() do
 
     end
 
-    telescope.load_extension('neorg')
+    telescope.load_extension(file)
+    telescope.load_extension(file)
 
   end
 
 end
-print('tadaaaaaaa')
-

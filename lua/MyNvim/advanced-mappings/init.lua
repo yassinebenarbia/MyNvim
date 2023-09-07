@@ -12,6 +12,7 @@ mapper.map_mappings({
     { '<leader>fb', require('telescope.builtin').buffers, {}},
     { '<leader>fh', require('telescope.builtin').help_tags, {}},
     { '<leader>fm', require('telescope.builtin').man_pages, {}},
+    { '<leader>fc', require('telescope.builtin').commands, {}},
   },
 })
 
@@ -71,5 +72,3 @@ mapper.set_mappings(
 
 
   });
-
--- mapper.map_mappings({})
