@@ -7,6 +7,8 @@ require('MyNvim')
 require('plugins-install')
 -- Plugins configuration
 require('plugins-config')
+-- Colorscheme
+require('colorscheme')
 -- Extensions i.e. commands you can run
 require('extensions')
 -- External keymaps, i.e. keymaps that require external plugins

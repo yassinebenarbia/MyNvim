@@ -9,7 +9,6 @@ mapper.map_mappings({
     { '<leader>nc', ':Neorg toggle-concealer<CR>', {} },
 
     -- Others
-
     { '<leader>tC', ':Telescope perma_colorscheme <CR>', {} },
 
   },
