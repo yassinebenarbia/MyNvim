@@ -9,7 +9,7 @@ local file_name_regex = "(.+)(%.[^.]+)"
 
 for file in io.popen(file_name_command):lines() do
 
-  if( file ~= "init.lua"   ) then
+  if( file ~= "init.lua" and file ~= "icons.lua") then
 
     for file_name in string.gmatch(file, file_name_regex) do
 

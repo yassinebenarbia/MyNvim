@@ -2,6 +2,7 @@
 return function(_, _)
   local lspconfig = require('lspconfig')
   lspconfig.pyright.setup {}
+  lspconfig.lua_ls.setup{}
   lspconfig.rust_analyzer.setup {
   -- lspconfig.tsserver.setup {}
     -- Server-specific settings. See `:help lspconfig-setup`

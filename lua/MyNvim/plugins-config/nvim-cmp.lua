@@ -6,6 +6,19 @@ cmp.event:on(
   cmp_autopairs.on_confirm_done()
 )
 
+local status, lspkind = pcall(require, "lspkind")
+if not status then
+  lspkind = {}
+end
+
+local function formatter(_, item)
+  local status , icons = pcall(require, "MyNvim.setup.icons")
+  if not status then
+    icons = {}
+  end
+  return {}
+end
+
 local function border(hl_name)
   return {
     { "╭", hl_name },
@@ -26,21 +39,51 @@ cmp.event:on(
 
 
 local options = {
+
+  window = {
+
+    completion = {
+      side_padding = 1,
+      -- winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:PmenuSel",
+      scrollbar = false,
+      border = border "CmpDocBorder",
+    },
+
+    documentation = {
+      border = border "CmpDocBorder",
+      winhighlight = "Normal:CmpDoc",
+    },
+
+  },
+
   completion = {
     completeopt = "menu,menuone",
   },
 
+  -- snippet = {
+  --   expand = function(args)
+  --     require("luasnip").lsp_expand(args.body)
+  --   end,
+  -- },
+
+
+  formatting = {
+    format = lspkind.cmp_format(),
+  },
+
   mapping = {
-    ["<C-p>"] = cmp.mapping.select_prev_item(),
-    ["<C-n>"] = cmp.mapping.select_next_item(),
+
+    ["<Up>"] = cmp.mapping.select_prev_item(),
+    ["<Down>"] = cmp.mapping.select_next_item(),
+
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-Space>"] = cmp.mapping.complete(),
-    ["<C-e>"] = cmp.mapping.close(),
     ["<CR>"] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Insert,
       select = true,
     },
+
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -53,6 +96,7 @@ local options = {
       "i",
       "s",
     }),
+
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
@@ -73,6 +117,7 @@ local options = {
     { name = "nvim_lua" },
     { name = "path" },
   },
+
 }
 
 return options
