@@ -54,8 +54,11 @@ local options = {
     smartcase = true,
 
     -- shortmess
-    shortmess = 'ixFtTOlonfA'
+    shortmess = 'ixFtTOlonfA',
 
+    -- spelling suggestion
+    spelllang = "en_us,cjk",
+    -- spellsuggest = "best,9"
   },
 
   g = {
