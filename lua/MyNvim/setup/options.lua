@@ -57,8 +57,8 @@ local options = {
     shortmess = 'ixFtTOlonfA',
 
     -- spelling suggestion
-    spelllang = "en_us,cjk",
-    -- spellsuggest = "best,9"
+    spelllang = "en_us,cjk,fr",
+    spellsuggest = "best,9"
   },
 
   g = {
