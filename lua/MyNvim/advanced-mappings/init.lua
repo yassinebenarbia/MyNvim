@@ -3,8 +3,16 @@
 --- of MyNvim or in another word, shall hold 
 --
 ---@breif ]]
+
 local mapper = require("MyNvim.capabilities.set_mappings")
 
+-- list related mappings
+mapper.map_mappings({
+  n = {
+    {"<leader>ls", "z=", {noremap=true, silent=true, done}} }
+})
+
+-- telescop related mappings
 mapper.map_mappings({
   n = {
     { '<leader>ff', require('telescope.builtin').find_files, {}},
@@ -16,6 +24,7 @@ mapper.map_mappings({
   },
 })
 
+-- terminal related mappings
 mapper.set_mappings(
   {
     {"t", "<S-Esc>", [[<C-\><C-n>]], {noremap = true, silent = true} },
@@ -23,7 +32,9 @@ mapper.set_mappings(
       {"t", "n"}, "<A-i>", function ()
         require("toggleterm.terminal").Terminal
           :new({
-            hidden = true, direction = "float", count = 1,
+            hidden = true,
+            direction = "float",
+            count = 1,
             float_opts = {
               -- The border key is *almost* the same as 'nvim_open_win'
               -- see :h nvim_open_win for details on borders however
@@ -36,7 +47,7 @@ mapper.set_mappings(
 
           })
           :toggle()
-      end, {noremap = true, silent = true}
+    end, { noremap = true, silent = true }
     },
     {
       {"t", "n"}, "<A-/>", function ()
@@ -66,9 +77,8 @@ mapper.set_mappings(
             hidden = true, direction = "float", count = 3, cmd = "lazygit",
           })
           :toggle()
-      end,
-      {noremap = true, silent = true}
-  }
-
+    end,
+      { noremap = true, silent = true }
+    }
 
   });
