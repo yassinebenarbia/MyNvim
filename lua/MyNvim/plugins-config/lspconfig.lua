@@ -3,13 +3,14 @@ return function(_, _)
   local lspconfig = require('lspconfig')
   lspconfig.pyright.setup {}
   lspconfig.lua_ls.setup{}
+  lspconfig.tsserver.setup {}
   lspconfig.rust_analyzer.setup {
-  -- lspconfig.tsserver.setup {}
     -- Server-specific settings. See `:help lspconfig-setup`
     settings = {
       ['rust-analyzer'] = {},
     },
   }
+  -- lspconfig.
 
   -- Global mappings.
   -- See `:help vim.diagnostic.*` for documentation on any of the below functions
