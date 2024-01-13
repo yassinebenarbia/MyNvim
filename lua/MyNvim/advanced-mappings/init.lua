@@ -1,6 +1,6 @@
 ---@breif [[
 --- This file shall hold keymaps that are directly related to the "base plugins"/"base implementation"
---- of MyNvim or in another word, shall hold 
+--- of MyNvim or in another word, shall hold
 --
 ---@breif ]]
 
@@ -9,28 +9,36 @@ local mapper = require("MyNvim.capabilities.set_mappings")
 -- list related mappings
 mapper.map_mappings({
   n = {
-    {"<leader>ls", "z=", {noremap=true, silent=true, done}} }
+    -- spell check
+    { "<leader>sc", "z=", { noremap = true, silent = true } } }
 })
 
 -- telescop related mappings
 mapper.map_mappings({
   n = {
-    { '<leader>ff', require('telescope.builtin').find_files, {}},
-    { '<leader>fw', require('telescope.builtin').live_grep, {}},
-    { '<leader>fb', require('telescope.builtin').buffers, {}},
-    { '<leader>fh', require('telescope.builtin').help_tags, {}},
-    { '<leader>fm', require('telescope.builtin').man_pages, {}},
-    { '<leader>fc', require('telescope.builtin').commands, {}},
+    { '<leader>ff', require('telescope.builtin').find_files, {} },
+    { '<leader>fw', require('telescope.builtin').live_grep,  {} },
+    { '<leader>fb', require('telescope.builtin').buffers,    {} },
+    { '<leader>fh', require('telescope.builtin').help_tags,  {} },
+    { '<leader>fm', require('telescope.builtin').man_pages,  {} },
+    { '<leader>fc', require('telescope.builtin').commands,   {} },
+  },
+})
+
+-- lsp related mappings
+mapper.map_mappings({
+  n = {
+    { '<leader>lr', vim.lsp.buf.rename, {} },
   },
 })
 
 -- terminal related mappings
 mapper.set_mappings(
   {
-    {"t", "<S-Esc>", [[<C-\><C-n>]], {noremap = true, silent = true} },
+    { "t", "<Esc>", [[<C-\><C-n>]], { noremap = true, silent = true } },
     {
-      {"t", "n"}, "<A-i>", function ()
-        require("toggleterm.terminal").Terminal
+      { "t", "n" }, "<A-i>", function()
+      require("toggleterm.terminal").Terminal
           :new({
             hidden = true,
             direction = "float",
@@ -50,29 +58,29 @@ mapper.set_mappings(
     end, { noremap = true, silent = true }
     },
     {
-      {"t", "n"}, "<A-/>", function ()
-        require("toggleterm.terminal").Terminal
+      { "t", "n" }, "<A-/>", function()
+      require("toggleterm.terminal").Terminal
           :new({
             hidden = true, direction = "horizontal", count = 2
           })
           :toggle()
-      end,
-      {noremap = true, silent = true}
+    end,
+      { noremap = true, silent = true }
     },
     {
-      {"t", "n"}, "<A-|>", function ()
-        require("toggleterm.terminal").Terminal
+      { "t", "n" }, "<A-|>", function()
+      require("toggleterm.terminal").Terminal
           :new({
             hidden = true, direction = "vertical", count = 3
           })
           :toggle()
-      end,
-      {noremap = true, silent = true}
+    end,
+      { noremap = true, silent = true }
     },
     {
       ---@ToDo Delete this thing ASAP
-    {"n"}, "<leader>gl", function ()
-        require("toggleterm.terminal").Terminal
+      { "n" }, "<leader>gl", function()
+      require("toggleterm.terminal").Terminal
           :new({
             hidden = true, direction = "float", count = 3, cmd = "lazygit",
           })
