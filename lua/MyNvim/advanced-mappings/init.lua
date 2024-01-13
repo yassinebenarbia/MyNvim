@@ -29,6 +29,10 @@ mapper.map_mappings({
 mapper.map_mappings({
   n = {
     { '<leader>lr', vim.lsp.buf.rename, {} },
+    { '<leader>la', vim.lsp.buf.code_action, {} },
+    { '<leader>lh', vim.lsp.buf.signature_help, {} },
+    { '<leader>lc', vim.lsp.buf.clear_references, {} },
+    { '<leader>lg', vim.lsp.buf.generato, {} },
   },
 })
 

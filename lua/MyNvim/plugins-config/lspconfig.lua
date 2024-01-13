@@ -1,8 +1,10 @@
+local capability = require('MyNvim.capabilities.borders')
 -- Setup language servers.
 return function(_, _)
   local lspconfig = require('lspconfig')
+
   lspconfig.pyright.setup {}
-  lspconfig.lua_ls.setup{}
+  lspconfig.lua_ls.setup {}
   lspconfig.tsserver.setup {}
   lspconfig.rust_analyzer.setup {
     -- Server-specific settings. See `:help lspconfig-setup`
@@ -10,6 +12,38 @@ return function(_, _)
       ['rust-analyzer'] = {},
     },
   }
+
+  -- Border config
+  vim.diagnostic.config({
+    virtual_text = false,
+    signs = true,
+    underline = true,
+    update_in_insert = false,
+    severity_sort = false,
+  })
+
+  local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
+  for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+  end
+
+  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+    vim.lsp.handlers.hover, {
+      border = capability.border "CmpDocBorder",
+    }
+  )
+
+  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+    vim.lsp.handlers.signature_help, {
+      border = capability.border "CmpDocBorder",
+    }
+  )
+
+  vim.diagnostic.config{
+    float={border = capability.border "CmpDocBorder",}
+  }
+
   -- lspconfig.
 
   -- Global mappings.
@@ -48,5 +82,7 @@ return function(_, _)
         vim.lsp.buf.format { async = true }
       end, opts)
     end,
+
+
   })
 end

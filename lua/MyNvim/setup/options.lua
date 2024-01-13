@@ -6,6 +6,7 @@ vim.opt_global.timeoutlen = 1000
 
 local options = {
 
+  -- vim.opt
   opt = {
 
     -- Numbers
@@ -14,7 +15,8 @@ local options = {
     
     -- use system clipboard 
     clipboard = 'unnamedplus',
-    completeopt = {'menu', 'menuone', 'noselect'},
+    completeopt = {'menuone', 'noselect', 'noinsert'},
+
     -- allow mouse to be used
     mouse = 'a',
     

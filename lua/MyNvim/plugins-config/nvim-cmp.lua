@@ -1,42 +1,11 @@
 local cmp = require("cmp")
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-
-cmp.event:on(
-  'confirm_done',
-  cmp_autopairs.on_confirm_done()
-)
+local capability = require('MyNvim.capabilities.borders')
 
 local status, lspkind = pcall(require, "lspkind")
 if not status then
   lspkind = {}
 end
-
-local function formatter(_, item)
-  local status , icons = pcall(require, "MyNvim.setup.icons")
-  if not status then
-    icons = {}
-  end
-  return {}
-end
-
-local function border(hl_name)
-  return {
-    { "╭", hl_name },
-    { "─", hl_name },
-    { "╮", hl_name },
-    { "│", hl_name },
-    { "╯", hl_name },
-    { "─", hl_name },
-    { "╰", hl_name },
-    { "│", hl_name },
-  }
-end
-
-cmp.event:on(
-  'confirm_done',
-  cmp_autopairs.on_confirm_done()
-)
-
 
 local options = {
 
@@ -46,11 +15,11 @@ local options = {
       side_padding = 1,
       -- winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:PmenuSel",
       scrollbar = false,
-      border = border "CmpDocBorder",
+      border = capability.border "CmpDocBorder",
     },
 
     documentation = {
-      border = border "CmpDocBorder",
+      border = capability.border "CmpDocBorder",
       winhighlight = "Normal:CmpDoc",
     },
 
@@ -60,11 +29,11 @@ local options = {
     completeopt = "menu,menuone",
   },
 
-  -- snippet = {
-  --   expand = function(args)
-  --     require("luasnip").lsp_expand(args.body)
-  --   end,
-  -- },
+  snippet = {
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body)
+    end,
+  },
 
 
   formatting = {
@@ -83,7 +52,6 @@ local options = {
       behavior = cmp.ConfirmBehavior.Insert,
       select = true,
     },
-
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -112,11 +80,12 @@ local options = {
   },
   sources = {
     { name = "nvim_lsp" },
+    { name = 'nvim_lsp_signature_help' },
     { name = "luasnip" },
     { name = "buffer" },
     { name = "nvim_lua" },
     { name = "path" },
-    { name = "tsserver"},
+    { name = "tsserver" },
   },
 
 }
