@@ -40,8 +40,8 @@ return function(_, _)
     }
   )
 
-  vim.diagnostic.config{
-    float={border = capability.border "CmpDocBorder",}
+  vim.diagnostic.config {
+    float = { border = capability.border "CmpDocBorder", }
   }
 
   -- lspconfig.

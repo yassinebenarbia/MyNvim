@@ -16,23 +16,23 @@ mapper.map_mappings({
 -- telescop related mappings
 mapper.map_mappings({
   n = {
-    { '<leader>ff', require('telescope.builtin').find_files, {} },
-    { '<leader>fw', require('telescope.builtin').live_grep,  {} },
-    { '<leader>fb', require('telescope.builtin').buffers,    {} },
-    { '<leader>fh', require('telescope.builtin').help_tags,  {} },
-    { '<leader>fm', require('telescope.builtin').man_pages,  {} },
-    { '<leader>fc', require('telescope.builtin').commands,   {} },
+    { '<leader>ff', require('telescope.builtin').find_files,   {} },
+    { '<leader>fb', require('telescope.builtin').buffers,      {} },
+    { '<leader>fh', require('telescope.builtin').help_tags,    {} },
+    { '<leader>fm', require('telescope.builtin').man_pages,    {} },
+    { '<leader>fc', require('telescope.builtin').commands,     {} },
+    { '<leader>fw', require('telescope.builtin').live_grep,    {} },
   },
 })
 
 -- lsp related mappings
 mapper.map_mappings({
   n = {
-    { '<leader>lr', vim.lsp.buf.rename, {} },
-    { '<leader>la', vim.lsp.buf.code_action, {} },
-    { '<leader>lh', vim.lsp.buf.signature_help, {} },
+    { '<leader>lr', vim.lsp.buf.rename,           {} },
+    { '<leader>la', vim.lsp.buf.code_action,      {} },
+    { '<leader>lh', vim.lsp.buf.signature_help,   {} },
     { '<leader>lc', vim.lsp.buf.clear_references, {} },
-    { '<leader>lg', vim.lsp.buf.generato, {} },
+    { '<leader>lg', vim.lsp.buf.generato,         {} },
   },
 })
 
@@ -41,7 +41,7 @@ mapper.set_mappings(
   {
     { "t", "<Esc>", [[<C-\><C-n>]], { noremap = true, silent = true } },
     {
-      { "t", "n" }, "<A-i>", function()
+      { "t",            "n" }, "<A-i>", function()
       require("toggleterm.terminal").Terminal
           :new({
             hidden = true,
@@ -62,7 +62,7 @@ mapper.set_mappings(
     end, { noremap = true, silent = true }
     },
     {
-      { "t", "n" }, "<A-/>", function()
+      { "t",            "n" }, "<A-/>", function()
       require("toggleterm.terminal").Terminal
           :new({
             hidden = true, direction = "horizontal", count = 2
@@ -72,7 +72,7 @@ mapper.set_mappings(
       { noremap = true, silent = true }
     },
     {
-      { "t", "n" }, "<A-|>", function()
+      { "t",            "n" }, "<A-|>", function()
       require("toggleterm.terminal").Terminal
           :new({
             hidden = true, direction = "vertical", count = 3

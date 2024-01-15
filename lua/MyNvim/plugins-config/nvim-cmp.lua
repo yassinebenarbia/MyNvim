@@ -1,5 +1,4 @@
 local cmp = require("cmp")
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local capability = require('MyNvim.capabilities.borders')
 
 local status, lspkind = pcall(require, "lspkind")
@@ -34,7 +33,6 @@ local options = {
       vim.fn["vsnip#anonymous"](args.body)
     end,
   },
-
 
   formatting = {
     format = lspkind.cmp_format(),
