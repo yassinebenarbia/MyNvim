@@ -31,5 +31,8 @@ vim.keymap.set('n', '<C-n>', ':Lexplore <CR>', opts)
 -- horizontal down slplit Explore
 vim.keymap.set('n', '<C-m>', ':Hexplore <CR>', opts)
 
+vim.keymap.set('n', '<A-\\>', ':vsplit<CR>', opts)
+vim.keymap.set('n', '<A-->', ':split<CR>', opts)
+
 -- spelling
 vim.keymap.set("n", "<C-s>", ":set spell!<CR>", opts)

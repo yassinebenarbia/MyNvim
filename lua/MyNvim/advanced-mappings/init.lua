@@ -10,20 +10,48 @@ local mapper = require("MyNvim.capabilities.set_mappings")
 mapper.map_mappings({
   n = {
     -- spell check
-    { "<leader>sc", "z=", { noremap = true, silent = true } } }
+    { "<leader>sc", "z=", { noremap = true, silent = true } },
+    { "<leader>st", ":setlocal spell!<CR>", { noremap = true, silent = true } },
+  }
 })
 
 -- telescop related mappings
 mapper.map_mappings({
   n = {
-    { '<leader>ff', require('telescope.builtin').find_files,   {} },
-    { '<leader>fb', require('telescope.builtin').buffers,      {} },
-    { '<leader>fh', require('telescope.builtin').help_tags,    {} },
-    { '<leader>fm', require('telescope.builtin').man_pages,    {} },
-    { '<leader>fc', require('telescope.builtin').commands,     {} },
-    { '<leader>fw', require('telescope.builtin').live_grep,    {} },
+    { '<leader>ff', require('telescope.builtin').find_files,     {} },
+    { '<leader>fb', require('telescope.builtin').buffers,        {} },
+    { '<leader>fh', require('telescope.builtin').help_tags,      {} },
+    { '<leader>fm', require('telescope.builtin').man_pages,      {} },
+    { '<leader>fc', require('telescope.builtin').commands,       {} },
+    { '<leader>fw', require('telescope.builtin').live_grep,      {} },
+    { '<leader>fd', require('telescope.builtin').diagnostics,    {} },
+    { '<leader>fr', require('telescope.builtin').lsp_references, {} },
   },
 })
+
+mapper.map_mappings({
+  n = {
+    { '<leader>gb', require('telescope.builtin').git_branches,   {} },
+    { '<leader>gc', require('telescope.builtin').git_bcommits,   {} },
+    { '<leader>gS', require('telescope.builtin').git_stash,      {} },
+    { '<leader>gs', require('telescope.builtin').git_status,     {} },
+    { '<leader>gf', require('telescope.builtin').git_files,      {} },
+    {
+      ---@ToDo Delete this thing ASAP
+      { "n" }, "<leader>gl",
+      function()
+      require("toggleterm.terminal").Terminal
+          :new({
+            hidden = true, direction = "float", count = 3, cmd = "lazygit",
+          })
+          :toggle()
+    end,
+      { noremap = true, silent = true }
+    }
+
+  },
+})
+
 
 -- lsp related mappings
 mapper.map_mappings({
@@ -32,9 +60,11 @@ mapper.map_mappings({
     { '<leader>la', vim.lsp.buf.code_action,      {} },
     { '<leader>lh', vim.lsp.buf.signature_help,   {} },
     { '<leader>lc', vim.lsp.buf.clear_references, {} },
-    { '<leader>lg', vim.lsp.buf.generato,         {} },
+    { '<leader>lt', vim.lsp.buf.type_definition,  {} },
+    { '<leader>ld', vim.diagnostic.open_float,    {} },
   },
 })
+
 
 -- terminal related mappings
 mapper.set_mappings(
@@ -81,16 +111,5 @@ mapper.set_mappings(
     end,
       { noremap = true, silent = true }
     },
-    {
-      ---@ToDo Delete this thing ASAP
-      { "n" }, "<leader>gl", function()
-      require("toggleterm.terminal").Terminal
-          :new({
-            hidden = true, direction = "float", count = 3, cmd = "lazygit",
-          })
-          :toggle()
-    end,
-      { noremap = true, silent = true }
-    }
 
   });

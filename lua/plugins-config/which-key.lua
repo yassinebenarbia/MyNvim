@@ -14,17 +14,39 @@ return function(_, _)
       c = { "commands" },
       f = { "file" },
       b = { "buffer" },
+      d = { "diagnisics" },
+      r = { "references" },
     },
-    l ={
+    l = {
       name = "lsp",
       a = { "actions" },
       h = { "header" },
       r = { "rename" },
-      -- d = { "diagnisics" },
-      -- etc
+      c = { "clear references" },
+      t = { "go-to type" },
+      d = { "diagnisic" },
+      -- ...
     },
     s = {
       name = "spell",
+    },
+    g = {
+      name = "git",
+      l = { "lazy" },
+      b = { "branches" },
+      c = { "commits" },
+      S = { "stash" },
+      s = { "status" },
+      f = { "files" },
+    },
+    e = {
+      name = "etc",
+      c = { "perma colorscheme" }
+    },
+    n = {
+      name = "neorg",
+      c = { "toggle concealer" },
+      w = { "workspaces" },
     },
   }, { prefix = "<leader>" })
 end
