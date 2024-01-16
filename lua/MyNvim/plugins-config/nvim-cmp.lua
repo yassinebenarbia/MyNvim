@@ -15,6 +15,7 @@ local options = {
       -- winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:PmenuSel",
       scrollbar = false,
       border = capability.border "CmpDocBorder",
+      winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
     },
 
     documentation = {
@@ -34,8 +35,16 @@ local options = {
     end,
   },
 
-  formatting = {
-    format = lspkind.cmp_format(),
+formatting = {
+    fields = { "kind", "abbr", "menu" },
+    format = function(entry, vim_item)
+      local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+      local strings = vim.split(kind.kind, "%s", { trimempty = true })
+      kind.kind = " " .. (strings[1] or "") .. " "
+      kind.menu = "    (" .. (strings[2] or "") .. ")"
+
+      return kind
+    end,
   },
 
   mapping = {
@@ -85,6 +94,11 @@ local options = {
     { name = "path" },
     { name = "tsserver" },
   },
+  view = {
+    view = {            
+      entries = "native" -- can be "custom", "wildmenu" or "native"
+    }                   
+  }
 
 }
 
