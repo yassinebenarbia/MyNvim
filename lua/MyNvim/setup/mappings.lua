@@ -28,6 +28,7 @@ vim.keymap.set('n', '<A-l>', '<C-w>l', opts)
 -- Explore
 -- lhs vertical split Explore
 vim.keymap.set('n', '<C-n>', ':Lexplore <CR>', opts)
+vim.keymap.set('n', '<CR>', '<CR>', opts)
 -- horizontal down slplit Explore
 vim.keymap.set('n', '<C-m>', ':Hexplore <CR>', opts)
 

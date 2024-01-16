@@ -29,6 +29,8 @@ return function(_, _)
     },
     s = {
       name = "spell",
+      t = { "toggle" },
+      s = { "suggestion" },
     },
     g = {
       name = "git",

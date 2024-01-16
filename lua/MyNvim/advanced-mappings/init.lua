@@ -10,7 +10,7 @@ local mapper = require("MyNvim.capabilities.set_mappings")
 mapper.map_mappings({
   n = {
     -- spell check
-    { "<leader>sc", "z=", { noremap = true, silent = true } },
+    { "<leader>ss", "z=", { noremap = true, silent = true } },
     { "<leader>st", ":setlocal spell!<CR>", { noremap = true, silent = true } },
   }
 })
