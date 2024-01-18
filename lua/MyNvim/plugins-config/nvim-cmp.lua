@@ -13,7 +13,7 @@ local options = {
     completion = {
       side_padding = 1,
       -- winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:PmenuSel",
-      scrollbar = false,
+      scrollbar = true,
       border = capability.border "CmpDocBorder",
       winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
     },
