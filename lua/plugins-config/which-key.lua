@@ -25,6 +25,8 @@ return function(_, _)
       c = { "clear references" },
       t = { "go-to type" },
       d = { "diagnisic" },
+      R = { "references" },
+      f = { "format" },
       -- ...
     },
     s = {
