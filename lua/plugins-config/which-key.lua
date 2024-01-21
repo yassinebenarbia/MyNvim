@@ -6,6 +6,10 @@ return function(_, _)
     -- refer to the configuration section below
   })
   wk.register({
+    b = {
+      "block",
+      c = { "comment" },
+    },
     f = {
       name = "find",
       m = { "manual" },
@@ -42,10 +46,17 @@ return function(_, _)
       S = { "stash" },
       s = { "status" },
       f = { "files" },
+      a = { "add hunk" },
+      A = { "add buffer" },
+      B = { "toggle blame" },
+      d = { "diff" },
+      r = { "reset hunk" },
+      R = { "reset buffer" },
     },
     e = {
       name = "etc",
-      c = { "perma colorscheme" }
+      c = { "temporary colorscheme" },
+      C = { "perma colorscheme" },
     },
     n = {
       name = "neorg",
