@@ -28,6 +28,7 @@ local setup = {
       },
       {
         icon = ' ',
+        icon_hl = 'Title',
         desc = 'Find keymaps',
         key = 'm',
         key_format = ' %s', -- remove default surrounding `[]`
@@ -35,6 +36,7 @@ local setup = {
       },
       {
         icon = ' ',
+        icon_hl = 'Title',
         desc = 'Find commands',
         key = 'c',
         key_format = ' %s', -- remove default surrounding `[]`

@@ -12,12 +12,10 @@ mapper.map_mappings({
     { '<leader>eC', ':Telescope perma_colorscheme <CR>', {} },
     { '<leader>ec', ':Telescope colorscheme<CR>', {} },
 
-    { '<leader>;', ':Dashboard<CR>', {} },
-
     -- Git
     -- <moveing between hubks>
-    { ']c', ':Gitsigns next_hunk <CR>', {} },
-    { '[c', ':Gitsigns prev_hunk <CR>', {} },
+    { ']c', ':Gitsigns next_hunk<CR>', {} },
+    { '[c', ':Gitsigns prev_hunk<CR>', {} },
     -- <resetting hunk/buffer>
     { '<leader>gr', ':Gitsigns reset_hunk<CR>', {} },
     { '<leader>gR', ':Gitsigns reset_buffer<CR>', {} },
