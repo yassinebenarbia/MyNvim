@@ -56,12 +56,15 @@ mapper.map_mappings({
 -- lsp related mappings
 mapper.map_mappings({
   n = {
-    { '<leader>lr', vim.lsp.buf.rename,           {} },
-    { '<leader>la', vim.lsp.buf.code_action,      {} },
-    { '<leader>lh', vim.lsp.buf.signature_help,   {} },
-    { '<leader>lc', vim.lsp.buf.clear_references, {} },
-    { '<leader>lt', vim.lsp.buf.type_definition,  {} },
-    { '<leader>ld', vim.diagnostic.open_float,    {} },
+
+    { '<leader>lf', function() vim.lsp.buf.format { async = true } end, {} },
+    { '<leader>lR', vim.lsp.buf.references,                             {} },
+    { '<leader>lr', vim.lsp.buf.rename,                                 {} },
+    { '<leader>la', vim.lsp.buf.code_action,                            {} },
+    { '<leader>lh', vim.lsp.buf.signature_help,                         {} },
+    { '<leader>lc', vim.lsp.buf.clear_references,                       {} },
+    { '<leader>lt', vim.lsp.buf.type_definition,                        {} },
+    { '<leader>ld', vim.diagnostic.open_float,                          {} },
   },
 })
 
