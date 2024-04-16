@@ -3,7 +3,8 @@ local capability = require('MyNvim.capabilities.borders')
 return function(_, _)
   local lspconfig = require('lspconfig')
 
-  lspconfig.pyright.setup {}
+  -- lspconfig.pyright.setup {}
+  lspconfig.pylsp.setup {}
   lspconfig.lua_ls.setup {}
   lspconfig.tsserver.setup {}
   lspconfig.rust_analyzer.setup {
