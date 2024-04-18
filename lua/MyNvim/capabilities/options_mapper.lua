@@ -29,7 +29,7 @@ function M.options_mapper(options)
         for param, value in pairs(option) do
 
           -- if declare value
-          if not value == nil then
+          if value ~= nil then
             -- add that option
             vim[mode][param] = value
           end
