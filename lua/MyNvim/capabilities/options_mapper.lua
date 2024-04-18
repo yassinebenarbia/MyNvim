@@ -28,15 +28,11 @@ function M.options_mapper(options)
         -- for each of the options
         for param, value in pairs(option) do
 
-          -- non declare value
-          if value == nil then
-            goto continue
+          -- if declare value
+          if not value == nil then
+            -- add that option
+            vim[mode][param] = value
           end
-
-          -- add that option
-          vim[mode][param] = value
-
-          ::continue::
 
         end
 
