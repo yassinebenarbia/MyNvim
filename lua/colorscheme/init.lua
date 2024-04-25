@@ -1,1 +1,1 @@
-vim.cmd.colorscheme("onenord")
+vim.cmd.colorscheme("kanagawa-wave")
