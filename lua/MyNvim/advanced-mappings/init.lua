@@ -74,7 +74,7 @@ mapper.set_mappings(
   {
     { "t", "<Esc>", [[<C-\><C-n>]], { noremap = true, silent = true } },
     {
-      { "t",            "n" }, "<A-i>", function()
+      { "t", "n" }, "<A-i>", function()
       require("toggleterm.terminal").Terminal
           :new({
             hidden = true,
@@ -88,14 +88,12 @@ mapper.set_mappings(
               border = 'curved',
               -- like `size`, width and height can be a number or function which is passed the current terminal
             },
-
-
           })
           :toggle()
     end, { noremap = true, silent = true }
     },
     {
-      { "t",            "n" }, "<A-/>", function()
+      { "t", "n" }, "<A-/>", function()
       require("toggleterm.terminal").Terminal
           :new({
             hidden = true, direction = "horizontal", count = 2
@@ -105,7 +103,7 @@ mapper.set_mappings(
       { noremap = true, silent = true }
     },
     {
-      { "t",            "n" }, "<A-|>", function()
+      { "t", "n" }, "<A-|>", function()
       require("toggleterm.terminal").Terminal
           :new({
             hidden = true, direction = "vertical", count = 3

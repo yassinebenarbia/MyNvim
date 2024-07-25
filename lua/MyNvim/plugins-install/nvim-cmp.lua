@@ -1,6 +1,5 @@
 return {
   'hrsh7th/nvim-cmp',
-
   dependencies = {
     -- autopairing
     {
@@ -30,14 +29,10 @@ return {
       "hrsh7th/vim-vsnip",
     },
   },
-
   opts = function()
     return require "MyNvim.plugins-config.nvim-cmp"
   end,
-
   config = function(_, opts)
     require("cmp").setup(opts)
   end,
-
 }
--- require running :COQdeps
