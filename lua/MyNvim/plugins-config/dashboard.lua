@@ -29,10 +29,10 @@ local setup = {
       {
         icon = ' ',
         icon_hl = 'Title',
-        desc = 'Find keymaps',
-        key = 'm',
+        desc = 'Find words',
+        key = 'w',
         key_format = ' %s', -- remove default surrounding `[]`
-        action = 'Telescope keymaps'
+        action = 'Telescope live_grep'
       },
       {
         icon = ' ',
