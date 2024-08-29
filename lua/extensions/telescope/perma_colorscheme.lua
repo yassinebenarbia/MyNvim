@@ -11,22 +11,18 @@ function enter(prompt_buffnr)
   local selected = actions_stat.get_selected_entry()
   actions.close(prompt_buffnr)
   vim.api.nvim_command("vsplit | Neorg workspace "..selected[1])
-
 end
-function up(prompt_buffnr)
 
+function up(prompt_buffnr)
   actions.move_selection_previous(prompt_buffnr)
   local selected = actions_stat.get_selected_entry()
   vim.cmd('colorscheme '..selected[1])
-
 end
 
 function down(prompt_buffnr)
-
   actions.move_selection_next(prompt_buffnr)
   local selected = actions_stat.get_selected_entry()
   vim.cmd("colorscheme "..selected[1])
-  
 end
 
 

@@ -13,6 +13,5 @@ function M.split_table(table)
     lKeys = lKeys,
     lValues = lValues
   }
-
 end
 return M

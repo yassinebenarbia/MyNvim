@@ -7,34 +7,26 @@ if not status then
 end
 
 local options = {
-
   window = {
-
     completion = {
       side_padding = 1,
-      -- winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:PmenuSel",
       scrollbar = true,
       border = capability.border "CmpDocBorder",
-      winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+      winhighlight = "Normal:CmpNormal,FloatBorder:Pmenu,Search:None",
     },
-
     documentation = {
       border = capability.border "CmpDocBorder",
       winhighlight = "Normal:CmpDoc",
     },
-
   },
-
   completion = {
     completeopt = "menu,menuone",
   },
-
   snippet = {
     expand = function(args)
       vim.fn["vsnip#anonymous"](args.body)
     end,
   },
-
 formatting = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
@@ -42,18 +34,14 @@ formatting = {
       local strings = vim.split(kind.kind, "%s", { trimempty = true })
       kind.kind = " " .. (strings[1] or "") .. " "
       kind.menu = "    (" .. (strings[2] or "") .. ")"
-
       return kind
     end,
   },
-
   mapping = {
-
     ["<Up>"] = cmp.mapping.select_prev_item(),
     ["<Down>"] = cmp.mapping.select_next_item(),
-
-    ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-f>"] = cmp.mapping.scroll_docs(4),
+    ["<C-j>"] = cmp.mapping.scroll_docs(4),
+    ["<C-k>"] = cmp.mapping.scroll_docs(-4),
     ["<C-Space>"] = cmp.mapping.complete(),
     ["<CR>"] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Insert,
@@ -71,7 +59,6 @@ formatting = {
       "i",
       "s",
     }),
-
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
@@ -89,17 +76,16 @@ formatting = {
     { name = "nvim_lsp" },
     { name = 'nvim_lsp_signature_help' },
     { name = "luasnip" },
-    { name = "buffer" },
     { name = "nvim_lua" },
-    { name = "path" },
     { name = "tsserver" },
+    { name = "buffer" },
+    { name = "path" },
   },
   view = {
-    view = {            
-      entries = "native" -- can be "custom", "wildmenu" or "native"
-    }                   
+    view = {
+      entries = "wildmenu" -- can be "custom", "wildmenu" or "native"
+    }
   }
-
 }
 
 return options
