@@ -5,6 +5,7 @@ return function(_, _)
 
   -- lspconfig.pyright.setup {}
   lspconfig.pylsp.setup {}
+  lspconfig.clangd.setup {}
   lspconfig.lua_ls.setup {
     settings = {
       Lua = {

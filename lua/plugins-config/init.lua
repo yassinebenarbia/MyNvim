@@ -8,17 +8,9 @@ local file_name_regex = "(.+)(%.[^.]+)"
 -- just below it
 
 for file in io.popen(file_name_command):lines() do
-
   if( file ~= "init.lua" ) then
-
     for file_name in string.gmatch(file, file_name_regex) do
-
       local opts = require("plugins-config."..file_name)
-      -- local status_ok, fault = pcall(require, "plugins."..file_name)
-      -- table.insert(plugins, opts)
-          
     end
-    
   end
-
 end

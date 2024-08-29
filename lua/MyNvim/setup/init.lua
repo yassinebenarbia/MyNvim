@@ -8,16 +8,10 @@ local file_name_regex = "(.+)(%.[^.]+)"
 -- just below it
 
 for file in io.popen(file_name_command):lines() do
-
   if( file ~= "init.lua" and file ~= "icons.lua") then
-
     for file_name in string.gmatch(file, file_name_regex) do
-
       require("MyNvim.setup."..file_name)
-          
     end
-    
   end
-
 end
 
