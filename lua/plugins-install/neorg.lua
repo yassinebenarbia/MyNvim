@@ -3,7 +3,7 @@ local M = {
   "nvim-neorg/neorg",
   build = ":Neorg sync-parsers",
   dependencies = { "nvim-lua/plenary.nvim" },
-  lazy = false,
+  lazy = true,
   config = function()
     if status then
       require("neorg").setup(load)
