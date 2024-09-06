@@ -6,6 +6,7 @@ return function(_, _)
   -- lspconfig.pyright.setup {}
   lspconfig.pylsp.setup {}
   lspconfig.clangd.setup {}
+  lspconfig.ts_ls.setup {}
   lspconfig.lua_ls.setup {
     settings = {
       Lua = {
@@ -30,7 +31,6 @@ return function(_, _)
       },
     },
   }
-  lspconfig.tsserver.setup {}
   lspconfig.rust_analyzer.setup {
     -- Server-specific settings. See `:help lspconfig-setup`
     settings = {
