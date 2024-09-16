@@ -9,18 +9,11 @@ local file_name_command = string.format("ls -pa %s ", plugins_base_path)
 local capabilitiy = require "MyNvim.capabilities.is_directory"
 
 for file in io.popen(file_name_command):lines() do
-
   if( file ~= "init.lua" and file ~= "./" and file ~= "../"  ) then
-
     local dir_table = capabilitiy.jsonify_path(file)
-
     --if it's a directory
     if dir_table[1] ~= file then
-
       pcall(require, "MyNvim.extensions."..dir_table[1])
-
-    end 
-
+    end
   end
-
 end
