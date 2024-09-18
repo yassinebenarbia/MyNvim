@@ -7,11 +7,9 @@ local capabilities = require("MyNvim.capabilities.split_table")
 local status, neorg= pcall(require, 'neorg')
 
 function enter(prompt_buffnr)
-
   local selected = actions_stat.get_selected_entry()
   actions.close(prompt_buffnr)
   vim.api.nvim_command("vsplit | Neorg workspace "..selected[1])
-
 end
 
 return require("telescope").register_extension {
@@ -20,7 +18,6 @@ return require("telescope").register_extension {
   end,
   exports = {
     workspaces = function ()
-
       if not status then
         warn("neorg is not found")
       end
@@ -39,21 +36,16 @@ return require("telescope").register_extension {
           results = capabilities.split_table(workspaces).lKeys
         },
         sorter = conf.generic_sorter({}),
-
           attach_mappings = function (prompt_buffnr, map)
-
             map("i", "<S-CR>", enter)
             actions.select_default:replace(function ()
-
               local selection = actions_stat.get_selected_entry()
               actions.close(prompt_buffnr)
               vim.api.nvim_command("Neorg workspace "..selection[1])
             end)
-
             return true
         end,
       }):find()
-
     end
   },
 }

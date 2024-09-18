@@ -21,13 +21,9 @@ local config_path = vim.fn.stdpath("config")
 -- just below it
 
 for file in io.popen(file_name_command):lines() do
-
   if( file ~= "init" ) then
-
     local state, telescope = pcall(require, 'telescope')
-
     if state then
-
       -- setting up the command for linking the file into the extension directory
       local link_file = string.format(
         "echo ln -sfn %s/lua/extensions/telescope/%s.lua " ..
@@ -37,22 +33,13 @@ for file in io.popen(file_name_command):lines() do
       -- linking the file
       local stat, res = pcall(io.popen, link_file)
       if stat then
-
         require('telescope').register_extension(file)
-
       else
-
-       -- in case of a failure in linking the file, write logs
         local log_writer = require "MyNvim.capabilities.write_log"
         log_writer.write_log(res)
-
       end
-
     end
-
     telescope.load_extension(file)
     telescope.load_extension(file)
-
   end
-
 end

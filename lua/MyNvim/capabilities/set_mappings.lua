@@ -9,7 +9,6 @@ local M = {}
 --     ...
 ---  })
 function M.set_mappings(maps)
-
   -- ToDo: erro message that emmits to the user he's parameter name used in the function
   -- maybe it's value, and how it should be, for example "'var' is expected to be 'type' 
   -- but found 'another'"
@@ -18,17 +17,11 @@ function M.set_mappings(maps)
   if type(maps) ~= "table" then
     error("expected table in set_mappings function")
   end
-
   for _, value in pairs(maps) do
-
     if #(value) == 4 then
-
       vim.keymap.set(value[1], value[2], value[3], value[4])
-
     end
-
   end
-
 end
 
 ---function used to set mappings by setting a set of mappings for each mode
@@ -45,7 +38,6 @@ end
 ---    }
 ---  })
 function M.map_mappings(maps)
-
   -- mmaps stands for mini maps
   -- mmap stands for mini map
   for mode, mmaps in pairs(maps) do

@@ -7,7 +7,6 @@ local capabilities = require("MyNvim.capabilities.split_table")
 local status, neorg= pcall(require, 'neorg')
 
 function enter(prompt_buffnr)
-
   local selected = actions_stat.get_selected_entry()
   actions.close(prompt_buffnr)
   vim.api.nvim_command("vsplit | Neorg workspace "..selected[1])
@@ -32,8 +31,8 @@ return require("telescope").register_extension {
   end,
   exports = {
     perma_colorscheme = function ()
-
       if not status then
+        -- TODO: remove deprecated function
         warn("neorg is not found")
       end
       local colorschemes = vim.fn.getcompletion("", "color")
@@ -51,13 +50,10 @@ return require("telescope").register_extension {
           results = colorschemes
         },
         sorter = conf.generic_sorter({}),
-
           attach_mappings = function (prompt_buffnr, map)
-
             map("n", "j", down)
             map("n", "k", up)
             actions.select_default:replace(function ()
-
               local selection = actions_stat.get_selected_entry()
               actions.close(prompt_buffnr)
               -- vim.api.nvim_command
@@ -66,11 +62,9 @@ return require("telescope").register_extension {
                 ..[[")' > $HOME/.config/nvim/lua/colorscheme/init.lua]]
               )
             end)
-
             return true
         end,
       }):find()
-
     end
   },
 }

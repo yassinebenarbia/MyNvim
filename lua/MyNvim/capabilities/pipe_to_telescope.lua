@@ -9,23 +9,18 @@ local M = {}
 ---@param shell table the shell command that you want to be executed
 ---@param action table the action you wanted to be preformed with the item such that the $item represent the sellected item
 function M.pipe_shell_to_telescope(opts ,shell, action)
-
   shell = shell or {}
   opts = opts or {}
   action = action or {}
-
   pickers.new(opts, {
     -- prompt_title = "title"
     finder = finder.new_table {
-
     },
     sorter = conf.generic_sorter(opts),
     attach_mapping = function (prompt_buffr, map)
-      
       -- returns false to append to previous actions
     end
   }):find()
-  
 end
 
 return M
