@@ -4,6 +4,7 @@ return function(_, _)
   local lspconfig = require('lspconfig')
 
   -- lspconfig.pyright.setup {}
+  lspconfig.bashls.setup{}
   lspconfig.pylsp.setup {}
   lspconfig.clangd.setup {}
   lspconfig.ts_ls.setup {}
