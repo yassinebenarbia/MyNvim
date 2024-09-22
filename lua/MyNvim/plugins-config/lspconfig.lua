@@ -1,12 +1,15 @@
 local capability = require('MyNvim.capabilities.borders')
 -- Setup language servers.
+local css_capabilities = vim.lsp.protocol.make_client_capabilities()
+css_capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 return function(_, _)
   local lspconfig = require('lspconfig')
-
   -- lspconfig.pyright.setup {}
   lspconfig.bashls.setup{}
   lspconfig.pylsp.setup {}
   lspconfig.clangd.setup {}
+  lspconfig.cssls.setup {capabilities = css_capabilities}
   lspconfig.ts_ls.setup {}
   lspconfig.lua_ls.setup {
     settings = {
