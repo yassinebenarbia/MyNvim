@@ -39,6 +39,7 @@ return function(_, _)
     -- Server-specific settings. See `:help lspconfig-setup`
     settings = {
       ['rust-analyzer'] = {},
+      ['rustfmt.enable'] = true,
     },
   }
 
