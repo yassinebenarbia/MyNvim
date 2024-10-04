@@ -16,10 +16,6 @@ local file_name_command = string.format(
 )
 local config_path = vim.fn.stdpath("config")
 
--- ToDo: check for files and directories, if it's a file 
--- then load it if it's a directory load the init.lua 
--- just below it
-
 for file in io.popen(file_name_command):lines() do
   if( file ~= "init" ) then
     local state, telescope = pcall(require, 'telescope')
@@ -27,7 +23,7 @@ for file in io.popen(file_name_command):lines() do
       -- setting up the command for linking the file into the extension directory
       local link_file = string.format(
         "echo ln -sfn %s/lua/extensions/telescope/%s.lua " ..
-        "/home/yassine/.local/share/nvim/lazy/telescope.nvim/lua/telescope/_extensions/%s.lua | bash",
+        "/home/$USER/.local/share/nvim/lazy/telescope.nvim/lua/telescope/_extensions/%s.lua | sh",
         config_path ,file, file)
 
       -- linking the file
