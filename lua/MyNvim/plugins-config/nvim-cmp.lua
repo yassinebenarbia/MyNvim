@@ -78,6 +78,7 @@ formatting = {
     { name = "luasnip" },
     { name = "nvim_lua" },
     { name = "tsserver" },
+    { name = 'cmp-tw2css' },
     { name = "buffer" },
     { name = "path" },
   },
